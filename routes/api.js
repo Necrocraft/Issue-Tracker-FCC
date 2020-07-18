@@ -14,6 +14,8 @@
 
 // const CONNECTION_STRING = process.env.DB; //MongoClient.connect(CONNECTION_STRING, function(err, db) {});
 
+const shortid = require('shortid');
+
 let issues = [];
 
 module.exports = function (app) {
@@ -37,13 +39,16 @@ module.exports = function (app) {
         created_on : new Date(), 
         updated_on : new Date(), 
         open: true,
-        _id: 
+        _id: shortid.generate()
       }
-      console.log(req.body);
+      console.log(newIssue);
+      issues.push(newIssue);
+      res.json(newIssue);
     })
     
     .put(function (req, res){
       var project = req.params.project;
+    let {_id, issue_title, issue_text, created_by, assigned_to, status_text, open} = req.body;
       
     })
     
