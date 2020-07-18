@@ -22,13 +22,20 @@ module.exports = function (app) {
   
     .get(function (req, res){
       var project = req.params.project;
-      console.log(req.body);
       
     })
     
     .post(function (req, res){
       var project = req.params.project;
-      
+      let {issue_title, issue_text, created_by, assigned_to, status_text} = req.body;
+      let newIssue = {
+        issue_title,
+        issue_text,
+        created_by,
+        assigned_to,
+        status_test
+      }
+      console.log(req.body);
     })
     
     .put(function (req, res){
