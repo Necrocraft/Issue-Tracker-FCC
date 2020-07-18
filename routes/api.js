@@ -41,18 +41,22 @@ module.exports = function (app) {
         open: true,
         _id: shortid.generate()
       }
-      console.log(newIssue);
       issues.push(newIssue);
       res.json(newIssue);
     })
     
     .put(function (req, res){
-      var project = req.params.project;
-    console.log(req.body);
+    var project = req.params.project;
     let {_id, issue_title, issue_text, created_by, assigned_to, status_text, open} = req.body;
     const issueFound = issues.find(issue => issue._id === _id);
+    if(!issueFound) {
+       return res.json({
+          error: "No issue found witht he given _id"
+      })
+    }
     console.log(issueFound);
-      
+    console.log(req.body);
+    res.json(issueFound);
     })
     
     .delete(function (req, res){
