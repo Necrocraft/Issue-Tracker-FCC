@@ -48,7 +48,10 @@ module.exports = function (app) {
     
     .put(function (req, res){
       var project = req.params.project;
+    console.log(req.body);
     let {_id, issue_title, issue_text, created_by, assigned_to, status_text, open} = req.body;
+    const issueFound = issues.find(issue => issue._id === _id);
+    console.log(issueFound);
       
     })
     
