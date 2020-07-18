@@ -51,9 +51,12 @@ module.exports = function (app) {
     const issueFound = issues.find(issue => issue._id === _id);
     if(!issueFound) {
        return res.json({
-          error: "No issue found witht he given _id"
+          error: "No issue found with the given _id"
       })
     }
+    
+    issues.map((issue) => issue._id === id )
+    
     console.log(issueFound);
     console.log(req.body);
     res.json(issueFound);
