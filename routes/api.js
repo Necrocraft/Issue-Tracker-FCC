@@ -33,7 +33,11 @@ module.exports = function (app) {
         issue_text,
         created_by,
         assigned_to,
-        status_test
+        status_text,
+        created_on : new Date(), 
+        updated_on : new Date(), 
+        open: true,
+        _id: 
       }
       console.log(req.body);
     })

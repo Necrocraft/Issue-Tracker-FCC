@@ -16,7 +16,8 @@
     "mocha": "^8.0.1",
     "zombie": "^6.1.4",
     "helmet": "^3.23.3",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "shortid": "^2.2.15"
   },
   "engines": {
     "node": "4.4.3"
