@@ -59,8 +59,9 @@ module.exports = function (app) {
       res.send("No updated field sent");
     }
     else {
-        issues = issues.map((issue) => issue._id === _id ? ({...issue, issue_title: issue_title === "" ? issue.issue_title : issue_title, issue_text: issue_text === "" ? issue.issue_text : issue_text, created_by: created_by === "" ? issue.created_by : created_by, assigned_to: assigned_to === "" ? issue.assigned_to : assigned_to, status_text: status_text === "" ? issue.status_text : status_text, open: open === "" ? issue.open : open, updated_on : new Date()}): issue);
+        issues = issues.map((issue) => issue._id === _id ? ({...issue, issue_title: issue_title === "" ? issue.issue_title : issue_title, issue_text: issue_text === "" ? issue.issue_text : issue_text, created_by: created_by === "" ? issue.created_by : created_by, assigned_to: assigned_to === "" ? issue.assigned_to : assigned_to, status_text: status_text === "" ? issue.status_text : status_text, open: open === undefined ? issue.open : open, updated_on : new Date()}): issue);
         res.send("Request Updated Sucessfully");
+      console.log(issues);
       }
     })
     
