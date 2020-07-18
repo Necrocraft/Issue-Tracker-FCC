@@ -8,11 +8,13 @@
 
 'use strict';
 
-var expect = require('chai').expect;
-var MongoClient = require('mongodb');
-var ObjectId = require('mongodb').ObjectID;
+// var expect = require('chai').expect;
+// var MongoClient = require('mongodb');
+// var ObjectId = require('mongodb').ObjectID;
 
-const CONNECTION_STRING = process.env.DB; //MongoClient.connect(CONNECTION_STRING, function(err, db) {});
+// const CONNECTION_STRING = process.env.DB; //MongoClient.connect(CONNECTION_STRING, function(err, db) {});
+
+let issues = [];
 
 module.exports = function (app) {
 
@@ -20,6 +22,7 @@ module.exports = function (app) {
   
     .get(function (req, res){
       var project = req.params.project;
+      console.log(req.body);
       
     })
     
