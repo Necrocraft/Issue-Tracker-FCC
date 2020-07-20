@@ -24,6 +24,7 @@ module.exports = function (app) {
   
     .get(function (req, res){
       var project = req.params.project;
+      return res.json(issues);
       
     })
     
@@ -55,7 +56,7 @@ module.exports = function (app) {
           error: "No issue found with the given _id",
       })
     }
-    if(issue_title === "" && issue_text === "" && created_by === "" && assigned_to === "" && status_text === "" && open != undefined) {
+    if(issue_title === "" && issue_text === "" && created_by === "" && assigned_to === "" && status_text === "" && open === undefined) {
       res.send("No updated field sent");
     }
     else {
