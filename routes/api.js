@@ -67,7 +67,20 @@ module.exports = function (app) {
     
     .delete(function (req, res){
       var project = req.params.project;
-      
+      let{_id} = req.body;
+      const issueFound = issues.find(issue => issue._id === _id);
+      if(!issueFound) {
+        return res.json({
+          error: `No issue found with the given id: ${_id}`
+        })
+      }
+    else {
+      issues = issues.filter(issue => issue._id != _id);
+      console.log(issues);
+      return res.json({
+        success: "Deleted Successfully"
+      })
+    }
     });
     
 };
