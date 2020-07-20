@@ -55,7 +55,7 @@ module.exports = function (app) {
           error: "No issue found with the given _id",
       })
     }
-    if(issue_title === "" && issue_text === "" && created_by === "" && assigned_to === "" && status_text === "") {
+    if(issue_title === "" && issue_text === "" && created_by === "" && assigned_to === "" && status_text === "" && open != undefined) {
       res.send("No updated field sent");
     }
     else {
