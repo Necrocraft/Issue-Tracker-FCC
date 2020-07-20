@@ -24,7 +24,39 @@ module.exports = function (app) {
   
     .get(function (req, res){
       var project = req.params.project;
-      return res.json(issues);
+      let filteredIssues = [...issues];
+      let {_id, issue_title, issue_text, created_by, assigned_to, status_text, open} = req.query;
+      console.log(_id, issue_title, issue_text, created_by, assigned_to, status_text, open);
+      
+      if(_id) {
+        filteredIssues = filteredIssues.filter(issue => issue._id === _id);
+      }
+    
+      if(issue_title) {
+        filteredIssues = filteredIssues.filter(issue => issue.issue_title === issue_title);
+      }
+    
+      if(issue_text) {
+        filteredIssues = filteredIssues.filter(issue => issue.issue_text === issue_text);
+      }
+    
+      if(created_by) {
+        filteredIssues = filteredIssues.filter(issue => issue.created_by === created_by);
+      }
+    
+      if(assigned_to) {
+        filteredIssues = filteredIssues.filter(issue => issue.assigned_to === assigned_to);
+      }
+    
+      if(status_text) {
+        filteredIssues = filteredIssues.filter(issue => issue.status_text === status_text);
+      }
+    
+      if(open) {
+        open = open === 'false' ? false : true;
+        filteredIssues = filteredIssues.filter(issue => issue.open === open);
+      }
+      return res.json(filteredIssues);
       
     })
     
