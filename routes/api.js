@@ -114,6 +114,5 @@ module.exports = function (app) {
         success: "Deleted Successfully"
       })
     }
-    });
-    
+    });    
 };
